@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { getList, showUpdate, showDelete } from './providerActions'
+import { getList, showUpdate, showDelete } from './unitActions'
 
 import Grid from '../common/layout/grid'
 
 
-class SelectProvider extends Component {
+class SelectUnit extends Component {
 
     componentWillMount() {
         this.props.getList()
@@ -37,6 +37,6 @@ class SelectProvider extends Component {
     }
 }
 
-const mapStateToProps = state => ({list: state.provider.list})
+const mapStateToProps = state => ({list: state.unit.list})
 const mapDispatchToProps = dispatch => bindActionCreators({getList, showUpdate, showDelete}, dispatch)
-export default connect(mapStateToProps, mapDispatchToProps)(SelectProvider)
+export default connect(mapStateToProps, mapDispatchToProps)(SelectUnit)

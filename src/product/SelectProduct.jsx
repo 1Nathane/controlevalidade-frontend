@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { getList, showUpdate, showDelete } from './providerActions'
+import { getList, showUpdate, showDelete } from './productActions'
 
 import Grid from '../common/layout/grid'
 
 
-class SelectProvider extends Component {
+class SelectProduct extends Component {
 
     componentWillMount() {
         this.props.getList()
@@ -14,8 +14,8 @@ class SelectProvider extends Component {
 
     renderRows() {
         const list = this.props.list || []
-        return list.map(bc => (
-          <option key={bc._id} value={bc._id}>{bc.name}</option>
+        return list.map(pd => (
+          <option key={pd._id} value={pd._id}>{pd.name}</option>
         ))
     }
     render() {
@@ -37,6 +37,6 @@ class SelectProvider extends Component {
     }
 }
 
-const mapStateToProps = state => ({list: state.provider.list})
+const mapStateToProps = state => ({list: state.product.list})
 const mapDispatchToProps = dispatch => bindActionCreators({getList, showUpdate, showDelete}, dispatch)
-export default connect(mapStateToProps, mapDispatchToProps)(SelectProvider)
+export default connect(mapStateToProps, mapDispatchToProps)(SelectProduct)

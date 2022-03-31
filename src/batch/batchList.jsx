@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { getList, showUpdate, showDelete } from './batchActions'
+import date from 'date-and-time'
 
 
 class BatchList extends Component {
@@ -10,16 +11,19 @@ class BatchList extends Component {
       this.props.getList()
     }
 
+    formatDate(value) { 
+        const data = new Date(value)       
+        return date.format(data, 'DD/MM/YYYY')       
+    }
 
-
-    renderRows() {
+    renderRows() {        
         const list = this.props.list || []
         return list.map(bc => (
             <tr key={bc._id}>
                 <td>{bc.name}</td>
                 <td>{bc.quantity}</td>
-                <td>{bc.inputDate}</td>
-                <td>{bc.outputDate}</td>
+                <td>{this.formatDate(bc.inputDate)}</td>
+                <td>{this.formatDate(bc.outputDate)}</td>
                 <td>{bc.status}</td>
                 <td>
                     <button className='btn btn-warning' onClick={() => this.props.showUpdate(bc)}>

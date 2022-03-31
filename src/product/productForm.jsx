@@ -5,26 +5,12 @@ import { reduxForm, Field, formValueSelector } from 'redux-form'
 
 import { init } from './productActions'
 import LabelAndInput from '../common/form/labelAndInput'
+import SelectUnit from '../unit/SelectUnit'
+import SelectBrand from '../brand/SelectBrand'
+import SelectStorageLocation from '../storageLocation/SelectStorageLocation'
 
 class ProductForm extends Component {
 
- //  constructor(props) {
- //   super(props)
- //   this.state = {
- //     items: [
- //       { id: 1, text: "Learn JavaScript" },
- //       { id: 2, text: "Learn React" },
- //       { id: 3, text: "Play around in JSFiddle" },
- //       { id: 4, text: "Build something awesome" }
- //     ],
- //     selectItem: 4
- //   };
- //   this.handleSelectItem = this.handleSelectItem.bind(this);
- // }
- //
- // handleSelectItem(e) {
- //   this.setState({selectItem: e.target.value});
- // };
 
     render() {
         const { handleSubmit, readOnly } = this.props
@@ -35,11 +21,11 @@ class ProductForm extends Component {
                         label='Nome' cols='12 8' placeholder='Informe o nome' />
                     <Field name='reference' component={LabelAndInput} readOnly={readOnly}
                         label='Referência' cols='12 4' placeholder='Informe o nome' />
-                    <Field name='storageLocation_id' component={LabelAndInput} readOnly={readOnly}
+                    <Field name='storageLocation_id' component={SelectStorageLocation} readOnly={readOnly}
                         label='Local de armazenamento' cols='12 4' placeholder='Informe o local' />
-                    <Field name='unit_id' component={LabelAndInput} readOnly={readOnly}
+                    <Field name='unit_id' component={SelectUnit} readOnly={readOnly}
                         label='Unidade' cols='12 4' placeholder='Informe a unidade' />
-                    <Field name='brand_id' component={LabelAndInput} readOnly={readOnly}
+                    <Field name='brand_id' component={SelectBrand} readOnly={readOnly}
                         label='Marca' cols='12 4' placeholder='Informe a marca' />
                 </div>
                 <div className='box-footer'>

@@ -41,6 +41,8 @@
   },
   "dependencies": {
     "cross-env": "^7.0.3",
-    "http-server": "0.10.0"
+    "date-and-time": "^2.3.0",
+    "http-server": "0.10.0",
+    "moment": "^2.29.1"
   }
 }

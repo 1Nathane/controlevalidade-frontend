@@ -14,6 +14,7 @@ class ProductList extends Component {
         return list.map(bc => (
             <tr key={bc._id}>
                 <td>{bc.name}</td>
+                <td>{bc.reference}</td>
                 <td>
                     <button className='btn btn-warning' onClick={() => this.props.showUpdate(bc)}>
                         <i className='fa fa-pencil'></i>
@@ -33,6 +34,7 @@ class ProductList extends Component {
                     <thead>
                         <tr>
                             <th>Nome</th>
+                            <th className='table-ref'>Referência</th>
                             <th className='table-actions'>Ações</th>
                         </tr>
                     </thead>

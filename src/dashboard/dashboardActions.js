@@ -1,10 +1,13 @@
 import axios from 'axios'
 import consts from '../consts'
 
+
 export function getSummary() {
-    const request = axios.get(`${consts.API_URL}/billingCycles/summary`)
+
+    const request = axios.get(`${consts.API_URL}/batch/expired`)
+    console.log(request) 
     return {
-        type: 'BILLING_SUMMARY_FETCHED',
+        type: 'SUMMARY_FETCHED',
         payload: request
     }
 }

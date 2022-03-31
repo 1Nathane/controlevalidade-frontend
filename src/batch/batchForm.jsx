@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { reduxForm, Field, formValueSelector } from 'redux-form'
+import { reduxForm, Field } from 'redux-form'
 
 import { init } from './batchActions'
 import LabelAndInput from '../common/form/labelAndInput'
-import { getList as getListProduct} from '../product/productActions'
 import SelectProvider from '../provider/SelectProvider'
+import SelectProduct from '../product/SelectProduct'
+import BatchStatus from './batchStatus'
 
 class BatchForm extends Component {
 
@@ -17,16 +18,17 @@ class BatchForm extends Component {
                 <div className='box-body'>
                     <Field name='name' component={LabelAndInput} readOnly={readOnly}
                         label='Nome' cols='12 4' placeholder='Informe o nome' />
-                    <Field name='product_id' component={LabelAndInput} readOnly={readOnly}
+                    <Field name='product_id' component={SelectProduct} readOnly={readOnly}
                         label='Produto' cols='12 4' placeholder='Informe o produto' />
-                    <SelectProvider/>
+                    <Field name='provider_id' component={SelectProvider} readOnly={readOnly}
+                    label='Fornecedor' cols='12 4' placeholder='Informe o fornecedor' />
                     <Field name='inputDate' component={LabelAndInput} readOnly={readOnly}
                         type='Date' label='Data de entrada' cols='6 2' />
                     <Field name='outputDate' component={LabelAndInput} readOnly={readOnly}
                         type='Date' label='Data de validade' cols='6 2' />
                     <Field name='quantity' component={LabelAndInput} readOnly={readOnly}
                         type='Number' label='Quantidade de produtos' cols='6 4' placeholder='Informe a quantidade de produtos do lote' />
-                    <Field name='status' component={LabelAndInput} readOnly={readOnly}
+                    <Field name='status' component={BatchStatus} readOnly={readOnly}
                         label='Status' cols='6 4' placeholder='Informe o status do lote' />
                 </div>
                 <div className='box-footer'>
@@ -42,7 +44,6 @@ class BatchForm extends Component {
 }
 
 BatchForm = reduxForm({form: 'batchForm', destroyOnUnmount: false})(BatchForm)
-const selector = formValueSelector('batchForm')
 const mapStateToProps = state => ({})
 const mapDispatchToProps = dispatch => bindActionCreators({init}, dispatch)
 export default connect(mapStateToProps, mapDispatchToProps)(BatchForm)
