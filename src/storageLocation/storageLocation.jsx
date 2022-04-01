@@ -9,6 +9,8 @@ import TabsHeader from '../common/tab/tabsHeader'
 import TabsContent from '../common/tab/tabsContent'
 import TabHeader from '../common/tab/tabHeader'
 import TabContent from '../common/tab/tabContent'
+import TabsFooter from '../common/tab/tabsFooter'
+import Pagination from '../common/template/pagination'
 import { init, create, update, remove } from './storageLocationActions'
 
 import List from './storageLocationList'
@@ -49,6 +51,9 @@ class StorageLocation extends Component {
                                     submitLabel='Excluir' submitClass='danger' />
                             </TabContent>
                         </TabsContent>
+                        <TabsFooter>
+                            <Pagination/>
+                        </TabsFooter>
                     </Tabs>
                 </Content>
             </div>
