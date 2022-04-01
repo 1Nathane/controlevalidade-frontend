@@ -8,7 +8,15 @@ const INITIAL_VALUES = {}
 const controleValidadeUser = JSON.parse(localStorage.getItem('_controlevalidade_user'))
 
 export function getList() {
-    const request = axios.get(`${consts.API_URL}/batch?user_email=_${controleValidadeUser['email']}`)
+    const request = axios.get(`${consts.API_URL}/batch?user_email=_${controleValidadeUser['email']}&status=ABERTO&&limit=10`)
+    return {
+        type: 'BATCH_FETCHED',
+        payload: request
+    }
+}
+
+export function getListTodos() {
+    const request = axios.get(`${consts.API_URL}/batch?user_email=_${controleValidadeUser['email']}&&limit=10`)
     return {
         type: 'BATCH_FETCHED',
         payload: request

@@ -9,6 +9,7 @@ import SelectProvider from '../provider/SelectProvider'
 import SelectProduct from '../product/SelectProduct'
 import BatchStatus from './batchStatus'
 
+
 class BatchForm extends Component {
 
     render() {
@@ -30,6 +31,8 @@ class BatchForm extends Component {
                         type='Number' label='Quantidade de produtos' cols='6 4' placeholder='Informe a quantidade de produtos do lote' />
                     <Field name='status' component={BatchStatus} readOnly={readOnly}
                         label='Status' cols='6 4' placeholder='Informe o status do lote' />
+                    
+                 
                 </div>
                 <div className='box-footer'>
                     <button type='submit' className={`btn btn-${this.props.submitClass}`}>

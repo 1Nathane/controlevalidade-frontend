@@ -9,7 +9,8 @@ import TabsHeader from '../common/tab/tabsHeader'
 import TabsContent from '../common/tab/tabsContent'
 import TabHeader from '../common/tab/tabHeader'
 import TabContent from '../common/tab/tabContent'
-import { init, create, update, remove } from './batchActions'
+
+import { init, create, update, remove, getListTodos } from './batchActions'
 
 import List from './batchList'
 import Form from './batchForm'

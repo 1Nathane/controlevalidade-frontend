@@ -1,4 +1,4 @@
-const INITIAL_STATE = {summary: {expired: 0}}
+const INITIAL_STATE = {summary: []}
 
 export default function(state = INITIAL_STATE, action) {
     switch (action.type) {

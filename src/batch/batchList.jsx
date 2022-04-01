@@ -1,22 +1,24 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { getList, showUpdate, showDelete } from './batchActions'
+import { getList, showUpdate, showDelete, getListTodos } from './batchActions'
 import date from 'date-and-time'
 
+import TabsFooter from '../common/tab/tabsFooter'
+import Pagination from '../common/template/pagination'
 
 class BatchList extends Component {
 
     componentWillMount() {
-      this.props.getList()
+        this.props.getList()
     }
 
-    formatDate(value) { 
-        const data = new Date(value)       
-        return date.format(data, 'DD/MM/YYYY')       
+    formatDate(value) {
+        const data = new Date(value)
+        return date.format(data, 'DD/MM/YYYY')
     }
 
-    renderRows() {        
+    renderRows() {
         const list = this.props.list || []
         return list.map(bc => (
             <tr key={bc._id}>
@@ -55,11 +57,16 @@ class BatchList extends Component {
                         {this.renderRows()}
                     </tbody>
                 </table>
+                <TabsFooter>
+                    <button onClick={this.props.getListTodos} type="button" className="btn btn-default">Mostrar Todos</button>
+                    <button onClick={this.props.getList} type="button" className="btn btn-default">Somente Abertos</button>
+                    <Pagination pagina="1" totalPaginas='10'></Pagination>
+                </TabsFooter>
             </div>
         )
     }
 }
 
-const mapStateToProps = state => ({list: state.batch.list})
-const mapDispatchToProps = dispatch => bindActionCreators({getList, showUpdate, showDelete}, dispatch)
+const mapStateToProps = state => ({ list: state.batch.list })
+const mapDispatchToProps = dispatch => bindActionCreators({ getList, showUpdate, showDelete, getListTodos }, dispatch)
 export default connect(mapStateToProps, mapDispatchToProps)(BatchList)

@@ -40,9 +40,11 @@
     "webpack-dev-server": "1.16.2"
   },
   "dependencies": {
+    "@syncfusion/ej2-react-calendars": "^19.4.56",
     "cross-env": "^7.0.3",
     "date-and-time": "^2.3.0",
     "http-server": "0.10.0",
-    "moment": "^2.29.1"
+    "moment": "^2.29.1",
+    "react-datepicker": "^4.7.0"
   }
 }
