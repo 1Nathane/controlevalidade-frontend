@@ -12,7 +12,6 @@ class NexToExpire extends Component {
 
     componentWillMount() {
         this.props.getSummary()
-        console.log(this.props)
     }
 
     formatDate(value) {

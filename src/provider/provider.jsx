@@ -9,6 +9,8 @@ import TabsHeader from '../common/tab/tabsHeader'
 import TabsContent from '../common/tab/tabsContent'
 import TabHeader from '../common/tab/tabHeader'
 import TabContent from '../common/tab/tabContent'
+import TabsFooter from '../common/tab/tabsFooter'
+import Pagination from '../common/template/pagination'
 import { init, create, update, remove } from './providerActions'
 
 import List from './providerList'
@@ -49,6 +51,9 @@ class Provider extends Component {
                                     submitLabel='Excluir' submitClass='danger' />
                             </TabContent>
                         </TabsContent>
+                        <TabsFooter>
+                            <Pagination pagina="1" totalPaginas='10'/>
+                        </TabsFooter>
                     </Tabs>
                 </Content>
             </div>

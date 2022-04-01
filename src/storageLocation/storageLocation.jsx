@@ -52,7 +52,7 @@ class StorageLocation extends Component {
                             </TabContent>
                         </TabsContent>
                         <TabsFooter>
-                            <Pagination/>
+                            <Pagination pagina="1" totalPaginas='10'/>
                         </TabsFooter>
                     </Tabs>
                 </Content>
