@@ -45,7 +45,7 @@ class Auth extends Component {
                             placeholder="Confirmar Senha" icon='lock' hide={loginMode} />
                         <Row>
                             <Grid cols="4">
-                                <button type="submit"
+                                <button href="#" type="submit"
                                     className="btn btn-primary btn-block btn-flat">
                                     {loginMode ? 'Entrar' : 'Registrar'}
                                 </button>
