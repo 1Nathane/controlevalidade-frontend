@@ -34,8 +34,10 @@ class NexToExpire extends Component {
         }
     }
 
-    mustshow(email_data){
-        if(email_data === `_${controleValidadeUser.email}`){
+    mustshow(email_data, index){
+        if(index > 8){
+            return false
+        }else if(email_data === `_${controleValidadeUser.email}`){
             return true
         }else{
             return false
@@ -55,8 +57,8 @@ class NexToExpire extends Component {
 
     renderRows() {
         const list = this.props.summary || []
-        return list.map((sm => (
-            this.mustshow(sm.user_email) ? (
+        return list.map(((sm,i) => (
+            this.mustshow(sm.user_email, i) ? (
             <tr key={sm._id} className={this.nameclasse(sm.outputDate)}>
                 <td >{sm.batch}</td>
                 <td >{sm.product}</td>
