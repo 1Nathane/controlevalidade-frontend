@@ -39,8 +39,8 @@ class SummaryData extends Component {
             this.compDate(bc.outputDate, Date.now()) ?
                 expired++ :
                 (this.compDate(bc.outputDate, (this.daysPlusDate(Date.now(), 30))) ?
-                    expireaftermonth++ :
-                    expiremonth++
+                    expiremonth++ :
+                    expireaftermonth++
                 )))
         return { expired, expiremonth, expireaftermonth }
     }
