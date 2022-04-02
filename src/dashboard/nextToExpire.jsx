@@ -6,13 +6,14 @@ import date from 'date-and-time'
 import moment from 'moment'
 
 
-
+const controleValidadeUser = JSON.parse(localStorage.getItem('_controlevalidade_user'))
 
 class NexToExpire extends Component {
 
     componentWillMount() {
         this.props.getSummary()
     }
+
 
     formatDate(value) {
         const data = new Date(value)
@@ -33,6 +34,14 @@ class NexToExpire extends Component {
         }
     }
 
+    mustshow(email_data){
+        if(email_data === `_${controleValidadeUser.email}`){
+            return true
+        }else{
+            return false
+        }
+    }
+
     nameclasse(date) {
         if (this.compDate(date, Date.now())) {
             return ('row-red')
@@ -47,13 +56,14 @@ class NexToExpire extends Component {
     renderRows() {
         const list = this.props.summary || []
         return list.map((sm => (
+            this.mustshow(sm.user_email) ? (
             <tr key={sm._id} className={this.nameclasse(sm.outputDate)}>
                 <td >{sm.batch}</td>
                 <td >{sm.product}</td>
                 <td >{sm.quantity}</td>
                 <td >{this.formatDate(sm.inputDate)}</td>
                 <td >{this.formatDate(sm.outputDate)}</td>
-            </tr>
+            </tr>) : null
         )))
     }
 
