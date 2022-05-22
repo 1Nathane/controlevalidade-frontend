@@ -9,6 +9,7 @@ import Unit from '../unit/unit'
 import Provider from '../provider/provider'
 import Product from '../product/product'
 import Batch from '../batch/batch'
+import Report from '../report/report'
 
 export default props => (
     <Router history={hashHistory}>
@@ -20,6 +21,7 @@ export default props => (
             <Route path='provider' component={Provider} />
             <Route path='product' component={Product} />
             <Route path='batch' component={Batch} />
+            <Route path='report' component={Report} />
         </Route>
         <Redirect from='*' to='/' />
     </Router>

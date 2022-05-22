@@ -36,15 +36,20 @@
     "redux-promise": "0.5.3",
     "redux-thunk": "2.1.0",
     "style-loader": "0.13.1",
-    "webpack": "1.14.0",
-    "webpack-dev-server": "1.16.2"
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "webpack": "^1.15.0",
+    "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
     "@syncfusion/ej2-react-calendars": "^19.4.56",
+    "chart.js": "^2.9.4",
     "cross-env": "^7.0.3",
     "date-and-time": "^2.3.0",
     "http-server": "0.10.0",
     "moment": "^2.29.1",
-    "react-datepicker": "^4.7.0"
+    "react-chartjs-2": "^2.10.0",
+    "react-datepicker": "^4.7.0",
+    "react-vis": "^1.11.7",
+    "victory": "^36.4.0"
   }
 }

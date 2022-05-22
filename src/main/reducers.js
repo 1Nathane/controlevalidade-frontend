@@ -11,6 +11,7 @@ import ProviderReducer from '../provider/providerReducer'
 import ProductReducer from '../product/productReducer'
 import BatchReducer from '../batch/batchReducer'
 import AuthReducer from '../auth/authReducer'
+import ReportReducer from '../report/reportReducer'
 
 const rootReducer = combineReducers({
     dashboard: DashboardReducer,
@@ -23,7 +24,8 @@ const rootReducer = combineReducers({
     batch: BatchReducer,
     form: formReducer,
     toastr: toastrReducer,
-    auth: AuthReducer
+    auth: AuthReducer,
+    report: ReportReducer
 })
 
 export default rootReducer
