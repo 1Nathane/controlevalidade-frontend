@@ -5,9 +5,6 @@ import { getList, showUpdate, showDelete } from '../batch/batchActions'
 import moment from 'moment'
 import { Bar } from 'react-chartjs-2'
 
-import './Chart.css'
-
-
 class ChartBar extends Component {
   componentWillMount() {
     this.props.getList()
